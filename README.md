@@ -5,7 +5,7 @@
 
 # Pre-Requirements
 1. Create an IAM group, as explained on:
-  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html
+: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html
 2. Attach the policy "AmazonEC2ReadOnlyAccess", as explained on:
   https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html
 3. Create an IAM user for programmatic access only, as explained on:
