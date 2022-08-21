@@ -4,13 +4,13 @@
 * Pipleline: Stage View Plugin
 
 # Pre-Requirements
-1. Create an IAM group, as explained on:
-: https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html
-2. Attach the policy "AmazonEC2ReadOnlyAccess", as explained on:
+1. Create an IAM group, as explained on:  
+ https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html
+2. Attach the policy "AmazonEC2ReadOnlyAccess", as explained on:  
   https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_manage_attach-policy.html
-3. Create an IAM user for programmatic access only, as explained on:
-  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html
-  Note 1: Add the IAM user to the previously created group.
+3. Create an IAM user for programmatic access only, as explained on:  
+  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html  
+  Note 1: Add the IAM user to the previously created group.  
   Note 2: Save the "credentials.csv" in a secured location
 4. Locate the Jenkins slave container:
   docker ps | grep "slave" | awk '{print $1}'
