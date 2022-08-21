@@ -1,3 +1,7 @@
+# Assumptions:
+* The GitHub branch name is **"main"**
+* The EC2 instances are deployed in region **us-east-1**
+
 # Jenkins required plugins:
 * Workspace Cleanup
 * Pipleline Utility Steps
