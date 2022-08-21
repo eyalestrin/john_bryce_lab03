@@ -1,5 +1,5 @@
 #FROM python:3.8-slim
-FROM alpine:3.14
+FROM python:3.8.2-alpine
 WORKDIR /usr/src/app
 COPY app.py .
 COPY requirements.txt .
