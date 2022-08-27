@@ -2,6 +2,7 @@ pipeline {
     agent any
     parameters {
         string defaultValue: '300', name: 'INTERVAL'
+        string defaultValue: 'us-east-1', name: 'REGION'
     }
 
     stages {
@@ -28,7 +29,7 @@ pipeline {
         stage('Deploy Step') {
             steps {
                 echo "Running the docker container, with version that match the current build running number"
-                sh "docker run -v ${HOME}/.aws/credentials:/root/.aws/credentials:ro -itd --name myapp --env INTERVAL=${params.INTERVAL} myapp:${currentBuild.number}"
+                sh "docker run -v ${HOME}/.aws/credentials:/root/.aws/credentials:ro -itd --name myapp --env INTERVAL=${params.INTERVAL} --env REGION=${params.REGION} myapp:${currentBuild.number}"
             }
         }
     }
