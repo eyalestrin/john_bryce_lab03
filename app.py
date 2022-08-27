@@ -17,6 +17,6 @@ def get_ec2_status():
 
 get_parameter_from_jenkins = os.environ.get('INTERVAL')
 
-while(True):
+while True:
     get_ec2_status()
     time.sleep(int(get_parameter_from_jenkins))
