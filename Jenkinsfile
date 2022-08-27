@@ -35,7 +35,7 @@ pipeline {
         stage('Print Output Step') {
             steps {
                 echo "Printing docker output"
-                sh "docker logs --name myapp"
+                sh "docker logs myapp"
             }
         }
     }
