@@ -17,7 +17,7 @@ pipeline {
         stage('SCM Step') {
             steps {
                 echo "Pulling code from GitHub"
-                git url: 'https://github.com/eyalestrin/john_bryce_lab03.git', branch: 'main'
+                git url: 'https://github.com/eyalestrin/john_bryce_lab03.git', branch: 'master'
             }
         }
         stage('Build Step') {
