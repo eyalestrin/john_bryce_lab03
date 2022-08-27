@@ -1,5 +1,6 @@
 FROM python:3.8.2-alpine
 ENV PYTHONUNBUFFERED=1
+ENV PYTHONIOENCODING=UTF-8
 WORKDIR /usr/src/app
 COPY app.py .
 COPY requirements.txt .
