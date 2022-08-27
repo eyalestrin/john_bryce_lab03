@@ -9,4 +9,4 @@ RUN mkdir /root/.aws
 RUN echo "[default]" > /root/.aws/config
 RUN echo "output = json" >> /root/.aws/config
 RUN echo "region = ${REGION}" >> /root/.aws/config
-CMD ["python", "app.py"]
+CMD ["python", "-u", "app.py"]
