@@ -39,3 +39,8 @@
    Password: Specify your Docker Hub access token.  
    ID: **dockerhub_id**
 4. Click OK
+
+## Create a Jenkins pipeline
+1. Login to Jenkins console
+2. Follow the instructions in the video below to configure Jenkins pipeline from GitHub repository:  
+   https://www.youtube.com/watch?v=56jtwSrNvrs
