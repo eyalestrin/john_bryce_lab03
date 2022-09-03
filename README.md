@@ -37,7 +37,7 @@
 3. Follow the instructions below and add a new global credential:  
    https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials  
    Credential type: **Username and password**  
-   Username: Specify your Docker Hub username  
-   Password: Sepcify your Docker Hub access token  
+   Username: Specify your Docker Hub username.  
+   Password: Specify your Docker Hub access token.  
    ID: **dockerhub_id**
 4. Click OK
