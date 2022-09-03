@@ -36,6 +36,8 @@ pipeline {
             steps {
                 echo "Printing docker output"
                 sleep 5
+                sh "docker exec myapp sh -c 'cat /root/.aws/config'"
+                sh "docker exec myapp sh -c 'cat /root/.aws/credentials'"
                 sh "docker logs myapp"
             }
         }
