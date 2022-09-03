@@ -35,7 +35,7 @@ pipeline {
         stage('Print Output Step') {
             steps {
                 echo "Printing docker output"
-                sleep 30
+                sleep 10
                 sh "docker logs myapp"
             }
         }
