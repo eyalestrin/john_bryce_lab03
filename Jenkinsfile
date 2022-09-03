@@ -8,6 +8,7 @@ pipeline {
         AWS_CREDENTIALS = credentials('credentials')
         DOCKER_REGISTRY = "eyales/johnbryce"
         DOCKERHUB_CREDENTIALS = 'dockerhub_id'
+        dockerImage = ''
     }
     stages {
         stage('Init Cleanup') {
@@ -29,7 +30,7 @@ pipeline {
                 echo "Creating an application from Dockerfile, with version that match the current build running number"
                 sh "cat $AWS_CREDENTIALS | tee credentials"
 //                sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
-                dockerImage = docker.build DOCKER_REGISTRY + myapp:${currentBuild.number}
+                dockerImage = docker.build DOCKER_REGISTRY + ":${currentBuild.number}"
 
             }
         }
