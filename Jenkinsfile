@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         AWS_CREDENTIALS = credentials('credentials')
+        DOCKER_REGISTRY = "eyales/johnbryce"
         DOCKERHUB_CREDENTIALS = 'dockerhub_id'
     }
     stages {
@@ -27,7 +28,9 @@ pipeline {
             steps {
                 echo "Creating an application from Dockerfile, with version that match the current build running number"
                 sh "cat $AWS_CREDENTIALS | tee credentials"
-                sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
+//                sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
+                dockerImage = docker.build DOCKER_REGISTRY + myapp:${currentBuild.number}
+
             }
         }
         stage('Deploy Step') {
@@ -46,8 +49,8 @@ pipeline {
         stage('Push image to DockerHub') { 
             steps {
                 script {
-                    dockerImage = myapp:${currentBuild.number}
-                    docker.withRegistry( '', registryCredential ) { 
+//                    dockerImage = myapp:${currentBuild.number}
+                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
                         dockerImage.push() 
                     }
                 } 
