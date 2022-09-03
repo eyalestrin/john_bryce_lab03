@@ -29,9 +29,7 @@ pipeline {
             steps {
                 echo "Creating an application from Dockerfile, with version that match the current build running number"
                 sh "cat $AWS_CREDENTIALS | tee credentials"
-//                sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
                 script {
-//                    dockerImage = docker.build DOCKER_REGISTRY + myapp + ":${currentBuild.number}"
                     dockerImage = docker.build(DOCKER_REGISTRY + ":${currentBuild.number}.0","-f Dockerfile .")
                 }
             }
@@ -52,7 +50,6 @@ pipeline {
         stage('Push image to DockerHub') { 
             steps {
                 script {
-//                    dockerImage = myapp:${currentBuild.number}
                     docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
                         dockerImage.push() 
                     }
