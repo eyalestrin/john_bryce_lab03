@@ -1,7 +1,7 @@
 # Jenkins required plugins:
 * Workspace Cleanup
 * Pipleline Utility Steps
-* Pipleline: Stage View Plugin
+* Pipleline: Stage View
 
 # Pre-Requirements
 1. Create an IAM group, as explained on:  
