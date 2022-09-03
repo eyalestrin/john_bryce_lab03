@@ -9,6 +9,8 @@ def get_ec2_status():
 #    for instance in ec2.instances.all():
     for instance in ec2.run_instances():
         bool_variable = False
+        MaxCount=123
+        MinCount=123
         for tag in instance.tags:
             if tag['Key'] == "k8s.io/role/master" and tag['Value'] == "1" and instance.state["Code"] == 16:
                 bool_variable = True
