@@ -30,8 +30,9 @@ pipeline {
                 echo "Creating an application from Dockerfile, with version that match the current build running number"
                 sh "cat $AWS_CREDENTIALS | tee credentials"
 //                sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
-                dockerImage = docker.build DOCKER_REGISTRY + ":${currentBuild.number}"
-
+                script {
+                    dockerImage = docker.build DOCKER_REGISTRY + ":${currentBuild.number}"
+                }
             }
         }
         stage('Deploy Step') {
