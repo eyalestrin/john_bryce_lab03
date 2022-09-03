@@ -13,12 +13,10 @@
   https://docs.aws.amazon.com/IAM/latest/UserGuide/id_users_create.html  
   Note 1: Add the IAM user to the previously created group.  
   Note 2: Save the **"credentials.csv"** in a secured location  
-4. Create **".aws"** folder:  
-  **mkdir ~/.aws**  
-5. Create the file below on your local Linux machine:  
-  **echo "[default]" > ~/.aws/credentials**  
-  **echo "aws_access_key_id = <AWS_ACCESS_KEY>" >> ~/.aws/credentials**  
-  **echo "aws_secret_access_key = <AWS_SECREST_ACCESS_KEY_ID>" >> ~/.aws/credentials**  
+4. Create **credentials** file on your local workstation, with the following content:  
+  **[default]**  
+  **aws_access_key_id = <AWS_ACCESS_KEY>**  
+  **aws_secret_access_key = <AWS_SECREST_ACCESS_KEY_ID>**  
   Note: Replace **<AWS_ACCESS_KEY>** and **<AWS_SECREST_ACCESS_KEY_ID>** with the values from the **"credentials.csv"**  
 
 ## Uploading AWS credentials file to Jenkins
