@@ -11,6 +11,4 @@ RUN mkdir /root/.aws
 RUN echo "[default]" > /root/.aws/config
 RUN echo "output = json" >> /root/.aws/config
 RUN echo "region = ${REGION}" >> /root/.aws/config
-RUN echo ${REGION}
-#RUN pip show boto3 | grep Version
 CMD ["python", "app.py"]
