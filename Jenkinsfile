@@ -6,6 +6,7 @@ pipeline {
     }
     environment {
         AWS_CREDENTIALS = credentials('credentials')
+        DOCKERHUB_CREDENTIALS = 'dockerhub_id'
     }
     stages {
         stage('Init Cleanup') {
@@ -42,5 +43,14 @@ pipeline {
                 sh "docker logs myapp"
             }
         }
-    }
+        stage('Push image to DockerHub') { 
+            steps {
+                script {
+                    dockerImage = myapp:${currentBuild.number}
+                    docker.withRegistry( '', registryCredential ) { 
+                        dockerImage.push() 
+                    }
+                } 
+            }
+        } 
 }
