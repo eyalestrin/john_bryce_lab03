@@ -40,6 +40,10 @@
    ID: **dockerhub_id**
 4. Click OK
 
+## Updating DockerHub repository
+1. Edit the Jenkinsfile
+2. Update the value **DOCKER_REGISTRY** with your target repository
+
 ## Create a Jenkins pipeline
 1. Login to Jenkins console
 2. Follow the instructions in the video below to configure Jenkins pipeline from GitHub repository:  
