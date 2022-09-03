@@ -7,8 +7,9 @@ COPY requirements.txt .
 RUN pip install --upgrade pip
 RUN pip install -r requirements.txt
 RUN mkdir /root/.aws
+COPY credentials /root/.aws/credentials
 RUN echo "[default]" > /root/.aws/config
 RUN echo "output = json" >> /root/.aws/config
 RUN echo "region = ${REGION}" >> /root/.aws/config
-COPY credentials /root/.aws/credentials
+#COPY credentials /root/.aws/credentials
 CMD ["python", "app.py"]
