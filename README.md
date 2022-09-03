@@ -1,10 +1,10 @@
-# Jenkins required plugins:
+## Jenkins required plugins:
 * Workspace Cleanup
 * Pipleline Utility Steps
 * Pipleline: Stage View
 * Discard Old Build
 
-# Pre-Requirements
+## Creating AWS credentials
 1. Create an IAM group, as explained on:  
  https://docs.aws.amazon.com/IAM/latest/UserGuide/id_groups_create.html
 2. Attach the policy **"AmazonEC2ReadOnlyAccess"**, as explained on:  
@@ -21,11 +21,23 @@
   **echo "aws_secret_access_key = <AWS_SECREST_ACCESS_KEY_ID>" >> ~/.aws/credentials**  
   Note: Replace **<AWS_ACCESS_KEY>** and **<AWS_SECREST_ACCESS_KEY_ID>** with the values from the **"credentials.csv"**  
 
-# Uploading AWS credentials file to Jenkins
-1. Login to Jenkin console
+## Uploading AWS credentials file to Jenkins
+1. Login to Jenkins console
 2. Follow the instructions below and add a new global credential:  
    https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials  
    Credential type: **Secret file**  
    When asked to choose a file, select the previously created **credentials** file.  
    ID: **credentials**
 3. Click OK
+
+## Uploading Docker Hub credentials to Jenkins
+1. Create Docker Hub access token, as instructed below:  
+   https://docs.docker.com/docker-hub/access-tokens/#create-an-access-token
+2. Login to Jenkins console
+3. Follow the instructions below and add a new global credential:  
+   https://www.jenkins.io/doc/book/using/using-credentials/#adding-new-global-credentials  
+   Credential type: **Username and password**  
+   Username: Specify your Docker Hub username  
+   Password: Sepcify your Docker Hub access token  
+   ID: **dockerhub_id**
+4. Click OK
