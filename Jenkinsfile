@@ -6,7 +6,8 @@ pipeline {
     }
     environment {
         AWS_CREDENTIALS = credentials('credentials')
-        DOCKER_REGISTRY = "eyales/johnbryce"
+//        DOCKER_REGISTRY = "eyales/johnbryce"
+        DOCKER_REGISTRY = "johnbryce/myapp"
         DOCKERHUB_CREDENTIALS = 'dockerhub_id'
         dockerImage = ''
     }
