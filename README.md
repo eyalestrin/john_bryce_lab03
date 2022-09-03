@@ -2,6 +2,7 @@
 * Workspace Cleanup
 * Pipleline Utility Steps
 * Pipleline: Stage View
+* Discard Old Build
 
 # Pre-Requirements
 1. Create an IAM group, as explained on:  
