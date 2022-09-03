@@ -4,7 +4,9 @@ pipeline {
         string defaultValue: '300', name: 'INTERVAL'
         string defaultValue: 'us-east-1', name: 'REGION'
     }
-
+    environment {
+        AWS_CREDENTIALS = credentials('credentials')
+    }
     stages {
         stage('Init Cleanup') {
             steps {
@@ -23,6 +25,7 @@ pipeline {
         stage('Build Step') {
             steps {
                 echo "Creating an application from Dockerfile, with version that match the current build running number"
+                sh "cat $AWS_CREDENTIALS | tee credentials"
                 sh "docker build -t myapp:${currentBuild.number} -f Dockerfile ."
             }
         }
