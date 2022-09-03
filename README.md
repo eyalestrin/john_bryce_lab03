@@ -15,7 +15,7 @@
   Note 2: Save the **"credentials.csv"** in a secured location  
 4. Create **".aws"** folder:  
   **mkdir ~/.aws**  
-5. Create the file below on your local Linux machine:
+5. Create the file below on your local Linux machine:  
   **echo "[default]" > ~/.aws/credentials**  
   **echo "aws_access_key_id = <AWS_ACCESS_KEY>" >> ~/.aws/credentials**  
   **echo "aws_secret_access_key = <AWS_SECREST_ACCESS_KEY_ID>" >> ~/.aws/credentials**  
