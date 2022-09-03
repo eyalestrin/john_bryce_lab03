@@ -7,10 +7,8 @@ ec2 = boto3.client('ec2', region_name = os.environ.get('REGION'))
 
 def get_ec2_status():
 #    for instance in ec2.instances.all():
-    for instance in ec2.run_instances():
+    for instance in ec2.run_instances(MinCount=1,MaxCount=123):
         bool_variable = False
-        MaxCount=123
-        MinCount=123
         for tag in instance.tags:
             if tag['Key'] == "k8s.io/role/master" and tag['Value'] == "1" and instance.state["Code"] == 16:
                 bool_variable = True
