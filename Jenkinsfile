@@ -29,6 +29,7 @@ pipeline {
         stage('Deploy Step') {
             steps {
                 echo "Running the docker container, with version that match the current build running number"
+                sleep 5
                 sh "docker run -v ${HOME}/.aws/credentials:/root/.aws/credentials:ro -itd --log-driver=json-file --name myapp --env INTERVAL=${params.INTERVAL} --env REGION=${params.REGION} myapp:${currentBuild.number}"
             }
         }
