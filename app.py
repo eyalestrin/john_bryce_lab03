@@ -2,7 +2,7 @@ import boto3
 import os
 import time
 
-ec2 = boto3.resource('ec2', region_name = os.environ.get('REGION'))
+ec2 = boto3.resource('ec2', region_name = os.environ.get('REGION'), profile_name="default")
 
 def get_ec2_status():
     for instance in ec2.instances.all():
