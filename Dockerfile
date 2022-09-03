@@ -1,6 +1,7 @@
 #FROM python:3.8.2-alpine
 #FROM python:3.10-alpine
-FROM python:3-alpine3.13
+#FROM python:3-alpine3.13
+FROM python:3.8-slim
 ENV PYTHONUNBUFFERED=1
 ENV PYTHONIOENCODING=UTF-8
 WORKDIR /usr/src/app
