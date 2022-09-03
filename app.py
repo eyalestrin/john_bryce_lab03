@@ -2,7 +2,8 @@ import boto3
 import os
 import time
 
-ec2 = boto3.resource('ec2', region_name = os.environ.get('REGION'))
+ec2 = boto3.resource('ec2', region_name = 'us-east-1')
+#ec2 = boto3.resource('ec2', region_name = os.environ.get('REGION'))
 #ec2 = boto3.client('ec2', region_name = os.environ.get('REGION'))
 
 def get_ec2_status():
