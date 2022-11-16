@@ -7,7 +7,7 @@ pipeline {
     environment {
         AWS_CREDENTIALS = credentials('credentials')
         DOCKER_REGISTRY = "eyales/johnbryce"
-        DOCKERHUB_CREDENTIALS = 'dockerhub_id'
+        DOCKERHUB_CREDENTIALS = credentials('dockerhub_id')
         dockerImage = ''
     }
     stages {
