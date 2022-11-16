@@ -63,7 +63,7 @@ pipeline {
 //                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
 //                        dockerImage.push() 
 //                    }
-                } 
+//                } 
             }
         } 
     }
