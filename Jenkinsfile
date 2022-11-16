@@ -50,12 +50,19 @@ pipeline {
                 sh "docker logs myapp"
             }
         }
+        stage('DockerHub Login') {
+            steps {
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW | docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin '
+                sh 'echo $DOCKERHUB_CREDENTIALS_PSW docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin  ' 
+            }
+        }
         stage('Push image to DockerHub') { 
             steps {
-                script {
-                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
-                        dockerImage.push() 
-                    }
+                sh (script : """docker push eyales/johnbryce:${currentBuild.number}""", returnStdout: false)
+//                script {
+//                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
+//                        dockerImage.push() 
+//                    }
                 } 
             }
         } 
