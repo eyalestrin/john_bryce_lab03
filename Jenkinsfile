@@ -31,7 +31,6 @@ pipeline {
                 sh "cat $AWS_CREDENTIALS | tee credentials"
                 sleep 2
                 script {
-//                    dockerImage = docker.build(DOCKER_REGISTRY + ":${currentBuild.number}.0","-f Dockerfile .")
                     dockerImage = docker.build(DOCKER_REGISTRY + ":${currentBuild.number}.0","-f Dockerfile .")
                 }
             }
@@ -39,8 +38,6 @@ pipeline {
         stage('Deploy Step') {
             steps {
                 echo "Running the docker container, with version that match the current build running number"
-//                sh "docker run -itd --log-driver=json-file --name myapp --env INTERVAL=${params.INTERVAL} --env REGION=${params.REGION} myapp:${currentBuild.number}"
-//                  sh "docker run -itd --log-driver=json-file --name myapp --env INTERVAL=${params.INTERVAL} --env REGION=${params.REGION} eyales/johnbryce:${currentBuild.number}"
                 sh "docker run -itd --log-driver=json-file --name myapp --env INTERVAL=${params.INTERVAL} --env REGION=${params.REGION} $DOCKER_REGISTRY:${currentBuild.number}.0"
             }
         }
@@ -59,13 +56,7 @@ pipeline {
         }
         stage('Push image to DockerHub') { 
             steps {
-//                sh (script : """docker push eyales/johnbryce:${currentBuild.number}""", returnStdout: false)
                 sh (script : """docker push $DOCKER_REGISTRY:${currentBuild.number}.0""", returnStdout: false)
-//                script {
-//                    docker.withRegistry( '', DOCKERHUB_CREDENTIALS ) { 
-//                        dockerImage.push() 
-//                    }
-//                } 
             }
         } 
     }
